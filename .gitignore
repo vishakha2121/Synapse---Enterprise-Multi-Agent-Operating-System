@@ -1,0 +1,1087 @@
+MAOS project structure
+🚀 README Add → Commit → Push (Step-by-Step)
+Bhai, ye exact commands hai jo tumhe PowerShell me chalani hai. Ek-ek karke copy-paste karo.
+
+📝 STEP 1: README File Update Karo
+PowerShell me jao project folder me:
+powershell
+cd C:\Users\HP\maos
+README.md ko kholo:
+powershell
+code README.md
+Ya agar VS Code nahi hai to:
+
+powershell
+notepad README.md
+Ab:
+Ctrl + A → pura content select karo
+
+Delete → pura delete karo
+
+Upar wala bada README content paste karo
+
+Ctrl + S → save karo
+
+Editor band karo
+
+🔍 STEP 2: Verify Karo Ki File Update Hui
+powershell
+git status
+Expected Output:
+
+text
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Agar modified: README.md dikh raha hai → ✅ sahi hai
+
+📦 STEP 3: README Ko Stage Karo (git add)
+powershell
+git add README.md
+Verify karo:
+
+powershell
+git status
+Expected Output:
+
+text
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+✅ README.md ab green me dikhega (staged)
+
+💾 STEP 4: Commit Karo
+powershell
+git commit -m "docs: add comprehensive professional README with architecture, agents, tech stack and setup guide"
+Expected Output:
+
+text
+[main abc1234] docs: add comprehensive professional README...
+ 1 file changed, 500 insertions(+), 10 deletions(-)
+💡 500 insertions ki jagah alag number aa sakta hai — depends on content length
+
+⬆️ STEP 5: Push Karo GitHub Pe
+powershell
+git push
+Expected Output:
+
+text
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 4.5 KiB | 1.2 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://github.com/vishakha2121/Synapse---Enterprise-Multi-Agent-Operating-System.git
+   abc1234..def5678  main -> main
+✅ Success!
+
+🎯 COMPLETE COMMAND BLOCK (Ek Saath Copy-Paste Karo)
+powershell
+cd C:\Users\HP\maos
+git status
+git add README.md
+git commit -m "docs: add comprehensive professional README with architecture, agents, tech stack and setup guide"
+git push
+🔍 STEP 6: Verify On GitHub
+Browser me kholo:
+
+text
+https://github.com/vishakha2121/Synapse---Enterprise-Multi-Agent-Operating-System
+Refresh karo (Ctrl + F5) → tumhara naya professional README dikhna chahiye ✅
+
+⚠️ AGAR ERROR AAYE TO
+❌ Error 1: nothing to commit, working tree clean
+Matlab: File save nahi hui thi ya kuch change nahi hua.
+
+Fix:
+
+powershell
+# Check karo file me content hai kya
+type README.md
+
+# Agar empty hai to dobara edit karke save karo
+code README.md
+❌ Error 2: fatal: not a git repository
+Matlab: Tum galat folder me ho.
+
+Fix:
+
+powershell
+cd C:\Users\HP\maos
+git status
+❌ Error 3: failed to push some refs
+Matlab: Remote pe kuch naya hai jo local pe nahi.
+
+Fix:
+
+powershell
+git pull origin main --rebase
+git push
+❌ Error 4: Authentication popup aaya
+Browser login: "Sign in with GitHub" → Authorize ✅
+
+Ya Personal Access Token (PAT) daalo (password ki jagah)
+
+❌ Error 5: LF will be replaced by CRLF
+Ye error nahi hai, warning hai — ignore karo. Windows line ending issue hai, harmless.
+
+📋 QUICK CHECKLIST
+□ README.md edit kiya (VS Code / Notepad)
+□ Ctrl + S se save kiya
+□ git status chala ke modified: README.md dekha
+□ git add README.md chala
+□ git commit -m "..." chala
+□ git push chala
+□ GitHub pe refresh karke verify kiya ✅
+🎉 BAS! HO GAYA
+Ab tumhara README GitHub pe live hai — professional, big, interview-ready.
+
+🚀 AGLA KADAM
+Bhai batao ab kya chahiye:
+
+(a) .gitignore ka complete correct version (Python + React + .env + .db)
+
+(b) backend/requirements.txt ka full content (all dependencies)
+
+(c) backend/app/core/config.py ka actual working code
+
+(d) backend/.env.example + frontend/.env.example ka content
+
+(e) backend/app/llm/gemini_client.py — Gemini API wrapper
+
+Bata do, ek-ek karke project complete karte hai! 🔥
+
+gigitnore fie
+📄 Complete .gitignore File — Synapse MAOS
+Bhai ye complete, production-grade .gitignore hai — Python + React + Environment + Database + IDE sab cover karta hai.
+
+📋 STEP 1: File Kholo
+powershell
+cd C:\Users\HP\maos
+code .gitignore
+Ya Notepad se:
+
+powershell
+notepad .gitignore
+📝 STEP 2: Complete Content Paste Karo
+Pura content delete karo (Ctrl + A → Delete) aur ye paste karo:
+
+gitignore
+# ================================================================
+#                    SYNAPSE MAOS - .gitignore
+# ================================================================
+# This file tells Git which files/folders to IGNORE.
+# NEVER upload secrets, dependencies, or build artifacts.
+# ================================================================
+
+
+# ================================================================
+# 🔐 ENVIRONMENT VARIABLES (CRITICAL - NEVER COMMIT)
+# ================================================================
+.env
+.env.local
+.env.development.env.production
+.env.test
+.env.*.local
+backend/.env
+frontend/.env
+*.env
+!.env.example
+!*.env.example
+
+
+# ================================================================
+# 🐍 PYTHON
+# ================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff (just in case)
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx docs
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Virtual environments
+venv/
+ENV/
+env/
+ENV/
+.venv/
+.venv*/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype
+.pytype/
+
+# Cython
+cython_debug/
+
+
+# ================================================================
+# ⚛️ NODE / REACT / FRONTEND
+# ================================================================
+node_modules/
+node_modules
+/node_modules
+/.pnp
+.pnp.js
+.pnp.cjs
+
+# Testing
+/coverage
+.nyc_output
+
+# Production build
+/build
+/dist
+/dist-ssr
+*.local
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vite
+.vite/
+.vite-cache/
+
+# Cache
+.parcel-cache/
+.cache/
+.eslintcache
+.stylelintcache
+.rollup.cache/
+.tsbuildinfo
+
+# Env files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Vercel / Netlify
+.vercel
+.netlify
+
+
+# ================================================================
+# 🗄️ DATABASE
+# ================================================================
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+backend/data/app.db
+backend/data/*.db
+database/*.db
+database/backup/*
+!database/backup/.gitkeep
+
+# Neo4j
+neo4j/data/
+neo4j/logs/
+*.dump
+
+# PostgreSQL
+*.pgdump
+*.sql.gz
+
+
+# ================================================================
+# 📝 LOGS
+# ================================================================
+*.log
+logs/
+*.log.*
+backend/data/logs/*
+!backend/data/logs/.gitkeep
+frontend/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+
+# ================================================================
+# 📤 UPLOADS / USER DATA
+# ================================================================
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+uploads/
+media/
+*.upload
+
+
+# ================================================================
+# 🔑 SECRETS & CREDENTIALS
+# ================================================================
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+.secrets/
+credentials.json
+service-account.json
+*-credentials.json
+google-credentials.json
+google-services.json
+firebase-config.json
+
+
+# ================================================================
+# 💻 IDE / EDITOR
+# ================================================================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# JetBrains (PyCharm, WebStorm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Atom
+.atom/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+# ================================================================
+# 🖥️ OPERATING SYSTEM
+# ================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# ================================================================
+# 🎨 BUILD ARTIFACTS
+# ================================================================
+*.tgz
+*.tar.gz
+*.zip
+*.rar
+build/
+dist/
+out/
+.output/
+.cache/
+.t
+
+# ================================================================
+#                    SYNAPSE MAOS - .gitignore
+# ================================================================
+# This file tells Git which files/folders to IGNORE.
+# NEVER upload secrets, dependencies, or build artifacts.
+# ================================================================
+
+
+# ================================================================
+# 🔐 ENVIRONMENT VARIABLES (CRITICAL - NEVER COMMIT)
+# ================================================================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+backend/.env
+frontend/.env
+*.env
+!.env.example
+!*.env.example
+
+
+# ================================================================
+# 🐍 PYTHON
+# ================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff (just in case)
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx docs
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Virtual environments
+venv/
+ENV/
+env/
+ENV/
+.venv/
+.venv*/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype
+.pytype/
+
+# Cython
+cython_debug/
+
+
+# ================================================================
+# ⚛️ NODE / REACT / FRONTEND
+# ================================================================
+node_modules/
+node_modules
+/node_modules
+/.pnp
+.pnp.js
+.pnp.cjs
+
+# Testing
+/coverage
+.nyc_output
+
+# Production build
+/build
+/dist
+/dist-ssr
+*.local
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vite
+.vite/
+.vite-cache/
+
+# Cache
+.parcel-cache/
+.cache/
+.eslintcache
+.stylelintcache
+.rollup.cache/
+.tsbuildinfo
+
+# Env files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Vercel / Netlify
+.vercel
+.netlify
+
+
+# ================================================================
+# 🗄️ DATABASE
+# ================================================================
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+backend/data/app.db
+backend/data/*.db
+database/*.db
+database/backup/*
+!database/backup/.gitkeep
+
+# Neo4j
+neo4j/data/
+neo4j/logs/
+*.dump
+
+# PostgreSQL
+*.pgdump
+*.sql.gz
+
+
+# ================================================================
+# 📝 LOGS
+# ================================================================
+*.log
+logs/
+*.log.*
+backend/data/logs/*
+!backend/data/logs/.gitkeep
+frontend/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+
+# ================================================================
+# 📤 UPLOADS / USER DATA
+# ================================================================
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+uploads/
+media/
+*.upload
+
+
+# ================================================================
+# 🔑 SECRETS & CREDENTIALS
+# ================================================================
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+.secrets/
+credentials.json
+service-account.json
+*-credentials.json
+google-credentials.json
+google-services.json
+firebase-config.json
+
+
+# ================================================================
+# 💻 IDE / EDITOR
+# ================================================================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# JetBrains (PyCharm, WebStorm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Atom
+.atom/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+# ================================================================
+# 🖥️ OPERATING SYSTEM
+# ================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# ================================================================
+# 🎨 BUILD ARTIFACTS
+# ================================================================
+*.tgz
+*.tar.gz
+*.zip
+*.rar
+build/
+dist/
+out/
+.output/
+.cache/
+.temp/
+.tmp/
+
+
+# ================================================================
+# 🐳 DOCKER
+# ================================================================
+.docker/
+docker-compose.override.yml
+*.pid
+
+
+# ================================================================
+# 🧠 AI / ML SPECIFIC
+# ================================================================
+# Model files
+*.h5
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.safetensors
+models/
+checkpoints/
+
+# Embeddings cache
+.embeddings_cache/
+.cache/embeddings/
+
+# Gemini / OpenAI logs
+gemini_logs/
+openai_logs/
+llm_logs/
+
+# LangChain
+.langchain/
+.langgraph/
+
+
+# ================================================================
+# 🔴 REDIS
+# ================================================================
+dump.rdb
+appendonly.aof
+*.rdb
+redis-data/
+redis/dump.rdb
+
+
+# ================================================================
+# 📦 PACKAGE MANAGERS
+# ================================================================
+# npm / yarn / pnpm
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.npmrc
+.yarnrc
+.pnpm-store/
+
+# pip
+pip-wheel-metadata/
+
+# Poetry
+poetry.lock
+.poetry/
+
+
+# ================================================================
+# 📊 COVERAGE / REPORTS
+# ================================================================
+coverage/
+*.coverage
+coverage.xml
+.coverage
+coverage.html
+htmlcov/
+test-results/
+junit.xml
+allure-results/
+
+
+# ================================================================
+# 🧪 TESTING
+# ================================================================
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+tests/tmp/
+tests/output/
+
+
+# ================================================================
+# 📁 TEMPORARY / MISC
+# ================================================================
+*.bak
+*.backup
+*.orig
+*.rej
+*.swp
+*.swo
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.pid.lock
+
+# Sandbox
+.sandbox/
+sandbox/
+
+# Personal notes (agar chahiye to)
+notes.txt
+TODO.md
+scratch/
+personal/
+
+
+# ================================================================
+# 🔒 KEEP THESE FILES (Force Include)
+# ================================================================
+# Even though we ignore .env, keep .env.example tracked
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Keep .gitkeep files to preserve empty folders
+!**/.gitkeep
+!backend/data/logs/.gitkeep
+!backend/data/uploads/.gitkeep
+!database/backup/.gitkeep
+!database/migrations/.gitkeep
+
+git add .gitignore
+
+# 3. Commit
+git commit -m "chore: add comprehensive gitignore and untrack sensitive files"
+
+# 4. Push
+git push
+
